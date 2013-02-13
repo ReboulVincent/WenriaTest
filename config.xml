@@ -3,7 +3,7 @@
         xmlns:gap   = "http://phonegap.com/ns/1.0"
         id          = "go.wenria.test"
         versionCode = "10"
-        version     = "1.1.0">
+        version     = "2.1.0">
  
     <name>WenriaTest</name>
  
@@ -14,7 +14,9 @@
     <author href="#" email="reboulvincentjd@gmail.com">
         Reboul Vincent
     </author>
- 
+    <icon src="img/logo.jpg"/>
+    <preference name="orientation" value="default" />
+    
     <feature name="http://api.phonegap.com/1.0/camera"/>
     <feature name="http://api.phonegap.com/1.0/contacts"/>
     <feature name="http://api.phonegap.com/1.0/file"/>
