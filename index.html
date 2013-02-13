@@ -4,42 +4,34 @@
     </head>
     
     <body>
+        
         <!-- HomeView -->
         <script id="home-tpl" type="text/x-handlebars-template">
-            <div class='header'><h1>Home</h1></div>
-            <div class='search-bar'><input class='search-key' type="search"/></div>
-            <div class="scroll"><ul class='employee-list'></ul></div>
+            <a href="#localisation" class="index_button bouton">Localisation</a>
         </script>
         
         <!-- Employe View -->
         <script id="employee-tpl" type="text/x-handlebars-template">
-            <div class='header'><a href='#' class="button header-button header-button-left">Back</a><h1>Details</h1></div>
-            <div class='details'>
-                <img class='employee-image' src='img/{{firstName}}_{{lastName}}.jpg' />
-                <h1>{{firstName}} {{lastName}}</h1>
-                <h2>{{title}}</h2>
-                <span class="location"></span>
-                <ul>
-                    <li><a href="tel:{{officePhone}}">Call Office<br/>{{officePhone}}</a></li>
-                    <li><a href="tel:{{cellPhone}}">Call Cell<br/>{{cellPhone}}</a></li>
-                    <li><a href="sms:{{cellPhone}}">SMS<br/>{{cellPhone}}</a></li>
-                    <li><a href="#" class="add-location-btn">Add Location</a></li>
-                    <li><a href="#" class="change-pic-btn">Change Picture</a></li>
-                </ul>
+            <header class='header'><a href='#' class="button header-button header-button-left">Retour</a><h1>Localisation</h1></header>
+            <div class='scroll'>
+                <div class="location"></div>
+                <div id="map_canvas"></div>
+                <a href="#" class="map_button bouton">Afficher carte</a>
+                <img class='image_capture' src='' alt="image capturé"/>
+                <a href="#" class="change-pic-btn bouton">Prendre une photo</a>
+                <p class="comment"></p>
+                <label for="comment_input">Entré un commentaire :</label>
+                <textarea class="comment_input"></textarea>
             </div>
-        </script>
-        
-        <!-- Liste -->
-        <script id="employee-li-tpl" type="text/x-handlebars-template">
-            {{#.}}
-            <li><a href="#employees/{{this.id}}">{{this.firstName}} {{this.lastName}}<br/>{{this.title}}</a></li>
-            {{/.}}
+            <footer><h1>Réalisé par Reboul Vincent</h1></footer>
         </script>
         
         <!-- Script -->
         <script src="css/source-sans-pro.js"></script>
         <script src="lib/jquery-1.8.2.min.js"></script>
+        <script src="js/functions.js"></script>
         <script src="lib/handlebars.js"></script>
+        <script src="https://maps.googleapis.com/maps/api/js?sensor=true" type="text/javascript"></script>
         <script src="js/storage/memory-store.js"></script>
         <script src="js/EmployeeView.js"></script>
         <script src="js/HomeView.js"></script>

@@ -1,17 +1,9 @@
 var app = {
-
-   /*
-    showAlert: function (message, title) {//Alert
-        if (navigator.notification) {
-            navigator.notification.alert(message, null, title, 'OK');
-        } else {
-            alert(title ? (title + ": " + message) : message);
-        }
-    },*/
     
+    /* Slide entre les pages */
     slidePage: function(page) {
         var currentPageDest,
-            self = this;
+        self = this;
 
         // If there is no current page (app just started) -> No transition: Position new page in the view port
         if (!this.currentPage) {
@@ -44,9 +36,9 @@ var app = {
             $(page.el).attr('class', 'page stage-center transition');
             self.currentPage = page;
         });
-
     },
     
+    /* Fonction */
     registerEvents: function() {
         var self = this;
         $(window).on('hashchange', $.proxy(this.route, this));
@@ -70,7 +62,8 @@ var app = {
         }
     },
     
-        route: function() {//Routeur
+    /* ROUTEUR */
+        route: function() {
            var self = this;
             var hash = window.location.hash;
             if (!hash) {
@@ -92,7 +85,7 @@ var app = {
         
     initialize: function() {//Fonction lancer
         var self = this;
-        this.detailsURL = /^#employees\/(\d{1,})/;
+        this.detailsURL = /^#localisation/;
         this.registerEvents();
         this.store = new MemoryStore(function() {
             self.route();
@@ -101,4 +94,4 @@ var app = {
     
 };
 
-app.initialize();
+app.initialize();//Lancement de la fonction
