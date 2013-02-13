@@ -16,7 +16,7 @@ var EmployeeView = function() {
     
    /* Fonction Commentaire */
    this.writeComment = function() {
-       $(".comment").replaceWith($(".comment_input").attr());
+       $(".comment").html($(".comment_input").val());
     };
     
     /* Fonction Localisation */
@@ -25,7 +25,7 @@ var EmployeeView = function() {
         console.log('addLocation');
         navigator.geolocation.getCurrentPosition(
             function(position) {
-                $('.location', this.el).html('<p>Latitude : '+position.coords.latitude+'</p>' + '<p> Longitude : ' + position.coords.longitude+'</p>');
+                $('.location', this.el).html('<p>Latitude : '+position.coords.latitude+'</p>' + '<p> Longitude : ' + position.coords.longitude+'</p>' + '<p> Altitude : ' + position.coords.altitude+'</p>');
                 //$("#map_canvas").hide();  BUG la carte se rezise mal si elle est caché au départ
                 
                     //Map
@@ -71,6 +71,7 @@ var EmployeeView = function() {
             navigator.camera.getPicture(
                 function(imageData) {
                     $('.image_capture', this.el).attr('src', "data:image/jpeg;base64," + imageData);
+                    $('.image_capture', this.el).css({'display':'block'});//Montre l'image
                 },
                 function() {
                     app.showAlert('Error taking picture', 'Error');
