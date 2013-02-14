@@ -65,17 +65,17 @@ var LocationView = function() {
             }
             var options =   {   
                 quality: 50,
-                destinationType: Camera.DestinationType.FILE_URI,
+                destinationType: Camera.DestinationType.DATA_URL,
                 sourceType : Camera.PictureSourceType.CAMERA, 
                 allowEdit : true,
-                encodingType: Camera.EncodingType.PNG
+                encodingType: Camera.EncodingType.JPEG
                 /*
                 sourceType: 1,      // 0:Photo Library, 1=Camera, 2=Saved Photo Album
                 encodingType: 0     // 0=JPG 1=PNG*/
             };
 
             navigator.camera.getPicture(function(imageData) {
-                    $('.image_capture', this.el).attr('src', "data:image/jpeg;FILE_URI," + imageData);
+                    $('.image_capture', this.el).attr('src', "data:image/jpeg;base64," + imageData);
                     $('.image_capture', this.el).css({'display':'block'});//Montre l'image
                 },
                 function() {
