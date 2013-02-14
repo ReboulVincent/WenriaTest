@@ -65,10 +65,10 @@ var LocationView = function() {
             }
             var options =   {   
                 quality: 50,
-                destinationType: Camera.DestinationType.DATA_URL,
+                destinationType: Camera.DestinationType.FILE_URI,
                 sourceType : Camera.PictureSourceType.CAMERA, 
                 allowEdit : true,
-                encodingType: Camera.EncodingType.JPEG
+                encodingType: Camera.EncodingType.PNG
                 /*
                 sourceType: 1,      // 0:Photo Library, 1=Camera, 2=Saved Photo Album
                 encodingType: 0     // 0=JPG 1=PNG*/
@@ -84,6 +84,7 @@ var LocationView = function() {
                 options);
             return false;
         };
+     
     
     this.render = function() {
         this.el.html(LocationView.template());
