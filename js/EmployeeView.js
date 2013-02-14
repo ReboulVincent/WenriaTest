@@ -5,18 +5,19 @@ var EmployeeView = function() {
         this.el.on('click', '.map_button', this.toggle);//Cacher afficher Map
         this.addLocation();//Map
         this.el.on('click', '.change-pic-btn', this.changePicture);//Photo
-        this.el.on('focusout', '.comment_input', this.writeComment);//Commentaire
+        this.el.on('click', '.comment_bouton', this.writeComment);//Commentaire
     };
     
     /* Fonction Montrer // Cacher */
      this.toggle = function() {
-           $("#map_canvas").toggle(1000);
+        $("#map_canvas").toggle(500);
         return false;
     };
     
    /* Fonction Commentaire */
-   this.writeComment = function() {
-       $(".comment").html($(".comment_input").val());
+    this.writeComment = function() {
+        $(".comment").toggle(500);
+        return false;
     };
     
     /* Fonction Localisation */
@@ -25,7 +26,7 @@ var EmployeeView = function() {
         console.log('addLocation');
         navigator.geolocation.getCurrentPosition(
             function(position) {
-                $('.location', this.el).html('<p>Latitude : '+position.coords.latitude+'</p>' + '<p> Longitude : ' + position.coords.longitude+'</p>' + '<p> Altitude : ' + position.coords.altitude+'</p>');
+                $('.location', this.el).html('<p>Latitude : '+position.coords.latitude+'</br> Longitude : ' + position.coords.longitude+'</br> Altitude : ' + position.coords.altitude+'</p>');
                 //$("#map_canvas").hide();  BUG la carte se rezise mal si elle est caché au départ
                 
                     //Map
@@ -62,14 +63,18 @@ var EmployeeView = function() {
                 app.showAlert("Camera API not supported", "Error");
                 return;
             }
-            var options =   {   quality: 50,
-                                destinationType: Camera.DestinationType.DATA_URL,
-                                sourceType: 1,      // 0:Photo Library, 1=Camera, 2=Saved Photo Album
-                                encodingType: 0     // 0=JPG 1=PNG
-                            };
+            var options =   {   
+                quality: 50,
+                destinationType: Camera.DestinationType.DATA_URL,
+                sourceType : Camera.PictureSourceType.CAMERA, 
+                allowEdit : true,
+                encodingType: Camera.EncodingType.JPEG
+                /*
+                sourceType: 1,      // 0:Photo Library, 1=Camera, 2=Saved Photo Album
+                encodingType: 0     // 0=JPG 1=PNG*/
+            };
 
-            navigator.camera.getPicture(
-                function(imageData) {
+            navigator.camera.getPicture(function(imageData) {
                     $('.image_capture', this.el).attr('src', "data:image/jpeg;base64," + imageData);
                     $('.image_capture', this.el).css({'display':'block'});//Montre l'image
                 },

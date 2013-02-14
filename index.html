@@ -7,23 +7,21 @@
         
         <!-- HomeView -->
         <script id="home-tpl" type="text/x-handlebars-template">
-            <a href="#localisation" class="index_button">Localisation</a>
+            <a href="#localisation" class="index bouton">Localisation</a>
         </script>
         
         <!-- Employe View -->
         <script id="employee-tpl" type="text/x-handlebars-template">
             <header class='header'><a href='#' class="button header-button header-button-left">Retour</a><h1>Localisation</h1></header>
             <div class='scroll'>
-                <div class="location"></div>
                 <div id="map_canvas"></div>
+                <div class="location"></div>
                 <a href="#" class="map_button bouton">Afficher carte</a>
                 <img class='image_capture' src='' alt="image capturé"/>
                 <a href="#" class="change-pic-btn bouton">Prendre une photo</a>
-                <p class="comment"></p>
-                <label for="comment_input">Entré un commentaire :</label>
-                <textarea class="comment_input"></textarea>
+                <a href="#" class="comment_bouton bouton">Laisser un commentaire</a>
+                <textarea class="comment"></textarea>
             </div>
-            <footer><h1>Réalisé par Reboul Vincent</h1></footer>
         </script>
         
         <!-- Script -->
