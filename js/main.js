@@ -77,8 +77,8 @@ var app = {
             }
             var match = hash.match(this.detailsURL);
             if (match) {
-                this.store.findById(Number(match[1]), function(employee) {
-                    self.slidePage(new EmployeeView(employee).render());
+                this.store.findById(Number(match[1]), function() {
+                    self.slidePage(new LocationView().render());
                 });
             }
         },

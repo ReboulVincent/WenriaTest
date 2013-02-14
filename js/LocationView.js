@@ -1,4 +1,4 @@
-var EmployeeView = function() {
+var LocationView = function() {
  
     this.initialize = function() {
         this.el = $('<div/>');
@@ -75,7 +75,7 @@ var EmployeeView = function() {
             };
 
             navigator.camera.getPicture(function(imageData) {
-                    $('.image_capture', this.el).attr('src', "data:image/jpeg;base64," + imageData);
+                    $('.image_capture', this.el).attr('src', "data:image/jpeg;FILE_URI," + imageData);
                     $('.image_capture', this.el).css({'display':'block'});//Montre l'image
                 },
                 function() {
@@ -86,11 +86,11 @@ var EmployeeView = function() {
         };
     
     this.render = function() {
-        this.el.html(EmployeeView.template());
+        this.el.html(LocationView.template());
         return this;
     };
     this.initialize();
  
  }
  
-EmployeeView.template = Handlebars.compile($("#employee-tpl").html());
+LocationView.template = Handlebars.compile($("#location-tpl").html());

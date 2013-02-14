@@ -144,11 +144,12 @@ h2 {
 }
 
 /* Page Home*/
-
+.index{
+    margin-top: 300px;
+}
 /* Page Localisation*/
     /* Camera*/
     .image_capture{
-        float:left;
         margin:1%;
         width:98%;
         height:250px;
